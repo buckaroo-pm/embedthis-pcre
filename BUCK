@@ -9,10 +9,13 @@ linux_headers = {
 cxx_library(
   name = 'pcre',
   header_namespace = '',
-  exported_headers = subdir_glob([
+  exported_headers = {
+    'pcre.h': 'src/pcre.h', 
+  }, 
+  headers = subdir_glob([
     ('src', '**/*.h'),
   ]),
-  exported_platform_headers = [
+  platform_headers = [
     ('macos.*', macos_headers),
     ('linux.*', linux_headers),
   ],
